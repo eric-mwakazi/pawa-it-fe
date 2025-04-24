@@ -21,3 +21,8 @@ export interface WeatherData {
     lon: number
   }
   
+  export interface GeocodeResponse {
+    latitude: number;
+    longitude: number;
+    // Add other properties from your geocode API response
+  }
