@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -52,13 +51,13 @@ export default function Home() {
   };
 
   return (
-    <main className="p-4 space-y-4">
+    <main className="bg-black text-white p-6 space-y-6">
       <div className="flex justify-between items-center mb-4">
         <SearchBar onSearch={handleCitySearch} />
         <TemperatureToggle onToggle={handleTemperatureUnitChange} />
       </div>
 
-      <div className="bg-white rounded-lg shadow-md p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="bg-gray-900 rounded-lg shadow-lg p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="flex flex-col items-center justify-center">
           <CurrentWeather current={current} />
           <DateLocation date={current?.date} city={current?.city} />
@@ -68,7 +67,7 @@ export default function Home() {
           <Forecast forecast={forecast} />
         </div>
 
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-6">
           <WindStatus windSpeed={current?.windSpeed} windDirection={current?.windDirection} />
           <Humidity humidity={current?.humidity} />
         </div>

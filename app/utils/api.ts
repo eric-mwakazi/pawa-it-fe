@@ -1,5 +1,9 @@
 // utils/api.ts
-const BASE_URL = 'http://localhost:8000/api/weather';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+if (!BASE_URL) {
+  throw new Error('NEXT_PUBLIC_BASE_URL is not defined. Make sure it is set in your .env.local');
+}
 
 export const fetchCurrentWeather = async (lat: number, lon: number, units: 'metric' | 'imperial' = 'metric') => {
   try {

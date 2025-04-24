@@ -1,4 +1,3 @@
-// components/TemperatureToggle.tsx
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -14,25 +13,32 @@ const TemperatureToggle: React.FC<TemperatureToggleProps> = ({ onToggle }) => {
     onToggle(isCelsius ? 'metric' : 'imperial');
   }, [isCelsius, onToggle]);
 
-  const handleToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsCelsius(event.target.checked);
+  const handleToggle = () => {
+    setIsCelsius((prev) => !prev);
   };
 
   return (
-    <div className="relative inline-block w-12 h-6 rounded-full bg-gray-300">
-      <input
-        type="checkbox"
-        className="peer sr-only"
-        checked={isCelsius}
-        onChange={handleToggle}
-        id="temperature-toggle"
-      />
-      <label
-        className="peer-checked:translate-x-full peer-checked:bg-primary-500 absolute top-0 left-0 w-6 h-6 rounded-full shadow-md transition-all duration-300 cursor-pointer"
-        htmlFor="temperature-toggle"
-      ></label>
-      <div className="absolute left-1 top-1 text-xs text-gray-700 peer-checked:text-white">°C</div>
-      <div className="absolute right-1 top-1 text-xs text-gray-700 peer-checked:text-white">°F</div>
+    <div className="flex items-center gap-3">
+      <span className={`text-sm font-medium ${isCelsius ? 'text-primary' : 'text-gray-500'}`}>°C</span>
+      <div className="relative">
+        <input
+          type="checkbox"
+          id="temperature-toggle"
+          checked={!isCelsius}  // Checkbox checked when Fahrenheit (not Celsius)
+          onChange={handleToggle}  // On change, toggle Celsius/Fahrenheit
+          className="sr-only"
+        />
+        <div
+          className={`w-12 h-6 bg-gray-300 rounded-full cursor-pointer transition-colors duration-300`}
+        >
+          <div
+            className={`w-6 h-6 bg-white rounded-full shadow-md transform transition-all duration-300 ${
+              isCelsius ? 'translate-x-0' : 'translate-x-6'
+            }`}
+          ></div>
+        </div>
+      </div>
+      <span className={`text-sm font-medium ${!isCelsius ? 'text-primary' : 'text-gray-500'}`}>°F</span>
     </div>
   );
 };
