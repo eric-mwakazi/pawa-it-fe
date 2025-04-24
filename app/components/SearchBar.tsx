@@ -1,5 +1,4 @@
-// app/components/SearchBar.tsx
-'use client'; // This line makes it a Client Component
+'use client';
 
 import * as React from 'react';
 import { useState } from 'react';
@@ -15,36 +14,29 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     setCity(event.target.value);
   };
 
-  const handleSearchClick = () => {
+  const handleSearch = () => {
     if (city.trim()) {
       onSearch(city.trim());
-      // Optionally clear the input after search
-      // setCity('');
     }
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' && city.trim()) {
-      onSearch(city.trim());
-      // Optionally clear the input after search
-      // setCity('');
+    if (event.key === 'Enter') {
+      handleSearch();
     }
   };
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center gap-2 w-full max-w-md mx-auto">
       <input
         type="text"
-        placeholder="Search city..."
         value={city}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
-        className="w-full rounded-md border border-gray-300 focus:border-primary-500 focus:ring-primary-500 shadow-sm"
+        placeholder="Search city..."
+        className="input input-bordered w-full"
       />
-      <button
-        onClick={handleSearchClick}
-        className="btn btn-primary rounded-md"
-      >
+      <button onClick={handleSearch} className="btn btn-primary">
         Go
       </button>
     </div>

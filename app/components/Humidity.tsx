@@ -1,6 +1,5 @@
 // components/Humidity.tsx
 import React from 'react';
-import { WeatherData } from '@/types';
 
 interface HumidityProps {
   humidity: number | undefined;
@@ -8,28 +7,31 @@ interface HumidityProps {
 
 const Humidity: React.FC<HumidityProps> = ({ humidity }) => {
   if (humidity === undefined) {
-    return <div>Humidity data not available.</div>; // Or a placeholder
+    return (
+      <div className="text-center text-content2 italic">
+        Humidity data not available.
+      </div>
+    );
   }
 
+  const level =
+    humidity > 70
+      ? 'High humidity'
+      : humidity > 30
+      ? 'Moderate humidity'
+      : 'Low humidity';
+
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 flex flex-col">
-      <h3 className="text-sm text-gray-700 font-semibold mb-2">Humidity</h3>
-      <div className="text-2xl font-bold">{humidity}%</div>
-      <div className="mt-2">
-        <div className="bg-gray-200 rounded-full h-2.5">
-          <div
-            className="bg-blue-500 h-2.5 rounded-full"
-            style={{ width: `${humidity}%` }}
-          ></div>
-        </div>
-        <div className="text-xs text-gray-600 mt-1">
-          {humidity > 70
-            ? 'High humidity'
-            : humidity > 30
-            ? 'Moderate humidity'
-            : 'Low humidity'}
-        </div>
+    <div className="card bg-base-100 p-4 rounded-xl shadow-md w-full max-w-xs mx-auto animate-in fade-in duration-500">
+      <h3 className="text-sm text-content1 font-semibold mb-2">Humidity</h3>
+      <div className="text-3xl font-extrabold text-primary mb-1">{humidity}%</div>
+      <div className="w-full h-2.5 bg-base-300 rounded-full overflow-hidden mb-1">
+        <div
+          className="h-full bg-blue-500 transition-all duration-300 ease-out"
+          style={{ width: `${humidity}%` }}
+        ></div>
       </div>
+      <div className="text-xs text-content2">{level}</div>
     </div>
   );
 };

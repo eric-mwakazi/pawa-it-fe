@@ -9,27 +9,27 @@ interface CurrentWeatherProps {
 const CurrentWeather: React.FC<CurrentWeatherProps> = ({ current }) => {
   if (!current) {
     return (
-      <div className="flex items-center justify-center h-48 text-gray-500">
+      <div className="flex items-center justify-center h-48 text-content2 italic">
         Loading current weather...
       </div>
     );
   }
 
   return (
-    <div className="bg-white dark:bg-gray-800 shadow-md rounded-2xl p-6 w-full max-w-sm mx-auto text-center transition-all duration-300">
+    <div className="card bg-base-100 p-6 shadow-xl w-full max-w-sm mx-auto text-center animate-in fade-in duration-500">
       {current.icon && (
         <img
           src={current.icon}
           alt={current.description}
-          className="w-20 h-20 mx-auto mb-4"
+          className="w-24 h-24 object-contain mx-auto mb-4"
         />
       )}
-      <div className="text-4xl font-extrabold text-gray-800 dark:text-white mb-2">
+      <h2 className="text-5xl font-extrabold text-primary mb-2">
         {current.temperature}°
-      </div>
-      <div className="text-lg text-gray-500 dark:text-gray-300 capitalize">
+      </h2>
+      <p className="text-content2 capitalize text-base">
         {current.description}
-      </div>
+      </p>
     </div>
   );
 };

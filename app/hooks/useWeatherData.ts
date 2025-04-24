@@ -65,5 +65,5 @@ export const useWeatherData = (lat: number | undefined, lon: number | undefined,
     loadData(newLat, newLon, newUnit);
   }, [loadData]);
 
-  return { current, forecast, loading, error, refetch }; // Ensure 'refetch' is included here
+  return { current, forecast, loading, error, refetch };
 };
