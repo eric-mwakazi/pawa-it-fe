@@ -4,7 +4,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/rippleui/**/*.{js,ts,jsx,tsx}", // Add Ripple UI path
+    "./node_modules/rippleui/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
