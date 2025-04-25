@@ -24,8 +24,8 @@ const TemperatureToggle: React.FC<TemperatureToggleProps> = ({ onToggle }) => {
         <input
           type="checkbox"
           id="temperature-toggle"
-          checked={!isCelsius}  // Checkbox checked when Fahrenheit (not Celsius)
-          onChange={handleToggle}  // On change, toggle Celsius/Fahrenheit
+          checked={!isCelsius}
+          onChange={handleToggle}
           className="sr-only"
         />
         <div

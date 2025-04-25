@@ -24,5 +24,4 @@ export interface WeatherData {
   export interface GeocodeResponse {
     latitude: number;
     longitude: number;
-    // Add other properties from your geocode API response
   }
