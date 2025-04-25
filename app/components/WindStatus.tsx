@@ -1,6 +1,6 @@
 import React from 'react';
 import { WeatherData } from '@/types';
-import { ArrowUpRightIcon } from '@heroicons/react/24/solid'; // Example icon
+import { ArrowUpRightIcon } from '@heroicons/react/24/solid';
 
 interface WindStatusProps {
   windSpeed: number | undefined;
